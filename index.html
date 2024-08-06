@@ -1,0 +1,256 @@
+<DOCTYPE html>
+  <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+    <head>
+      <meta charset="utf-8" />
+      <title>ゼロ知識証明</title>
+      <link
+        rel="stylesheet"
+        href="C:\Users\400992\Desktop\cmd\gemini-style.css"
+      />
+      <script src="C:\Users\400992\Desktop\cmd\copy-button.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+      <script>
+        $(document).ready(function () {
+          $("pre code.sourceCode").each(function () {
+            const copyButton = $('<button class="copy-button">コピー</button>');
+            copyButton.on("click", function () {
+              const codeBlock = $(this).parent().find("code");
+              const tempTextArea = $("<textarea>");
+              $("body").append(tempTextArea);
+              tempTextArea.val(codeBlock.text()).select();
+              document.execCommand("copy");
+              tempTextArea.remove();
+              $(this).text("コピー完了！");
+              setTimeout(function () {
+                copyButton.text("コピー");
+              }, 1500);
+            });
+            $(this).parent().prepend(copyButton);
+          });
+        });
+      </script>
+    </head>
+    <body>
+      <header id="title-block-header" ^>
+        <h1 class="title" ^>ゼロ知識証明</h1>
+      </header>
+      <p>
+        ゼロ知識証明（Zero-Knowledge Proof,
+        ZKP）は、ある主張が真であることを、相手にその主張の根拠を知らせずに証明する方法<strong>である</strong>。<br />
+        これは、暗号学やデジタルセキュリティにおいて非常に重要な概念で、特定の情報の秘密を守りながら、その情報に関連する証明を行うことができる。
+      </p>
+      <h3 id="基本概念">基本概念</h3>
+      <p>ゼロ知識証明は、以下の三つの主要な特性を持っている：</p>
+      <ol type="1">
+        <li>
+          <strong>完全性</strong>:
+          真であることを確認する側（<b>検証者</b>）は、証明する側（<b>証明者</b>）の持っている命題が真であるならば、真であることが必ず検証して正しさを確認できる。
+          …①
+        </li>
+        <li>
+          <strong>健全性</strong>:
+          証明者の持つ命題が偽であるなら、検証者は高い確率でそれが偽であると見抜ける。
+          …②
+        </li>
+        <li>
+          <strong>ゼロ知識性</strong>:
+          あらゆる場合において、検証者が証明者から何らかの知識（情報）を盗もうとしても、証明者の主張が真であること以外の情報は得られない。
+          …③
+        </li>
+      </ol>
+      <h3 id="例">例</h3>
+      <p>
+        ゼロ知識証明を理解するための直感的な例として、洞窟の例（別名：アリババの洞窟）がよく使われる：
+      </p>
+      <ol type="1">
+        <li>
+          証明者（Peggy）は洞窟の中にある秘密の扉を開ける方法を知っていると主張する。
+        </li>
+        <li>
+          検証者（Victor）はその主張が真であることを確認したいが、実際に扉を開ける方法を知りたくないとする。
+        </li>
+        <li>洞窟は二つの道に分かれており、Victorは洞窟の入り口で待ちる。</li>
+        <li>Peggyは洞窟に入り、扉の向こう側に移動する。</li>
+        <li>
+          VictorはPeggyにどちらの道から出てきてほしいかをランダムに指示する。
+        </li>
+        <li>
+          Peggyが正しい道を知っている場合、必ず指定された道から出てくることができる。
+          これを何度も繰り返すことで、VictorはPeggyが扉の秘密を知っていると確信できるが、実際の方法は知らないまま。
+        </li>
+      </ol>
+      <h3 id="実際の応用">実際の応用</h3>
+      <p>
+        ゼロ知識証明は多くの実用的なアプリケーションに使用されている。例えば：
+      </p>
+      <ul>
+        <li>
+          <strong>デジタル署名</strong>:
+          署名の検証ができるが、署名の秘密鍵が漏洩しないようにする。
+        </li>
+        <li>
+          <strong>認証システム</strong>:
+          ユーザーがパスワードを共有せずにシステムにログインできるようにする。
+        </li>
+        <li>
+          <strong>プライバシー強化技術</strong>:
+          ブロックチェーン技術などで、トランザクションの正当性を証明しつつ、取引内容を秘密にする。
+        </li>
+      </ul>
+      <p>
+        ゼロ知識証明は、プライバシーを保護しながら信頼性を確保するための強力なツール。この技術は暗号通貨やブロックチェーン技術においても注目を集めている。
+      </p>
+      <p>
+        <br />
+        <br />
+        <br />
+      </p>
+      <h2 id="証明について">証明について</h2>
+      <p>
+        これを数学的に証明するためには、プロトコルを設計し、そのプロトコルが以下の特性を満たすことを示す<strong>必要がある</strong>。<br />
+        ①, ②,
+        ③の特性を満たすプロトコルの例として、以下に「離散対数問題」を用いたゼロ知識証明のプロトコルを示す。
+        ### 離散対数問題に基づくゼロ知識証明
+      </p>
+      <h4 id="前提条件">前提条件</h4>
+      <ul>
+        <li>
+          <span style="font-family: serif">p</span>
+          は大きな素数<strong>である</strong>。
+        </li>
+        <li>
+          <span style="font-family: serif">g</span> は
+          <span style="font-family: serif">p</span>
+          を法とする原始根（すべての1以上<span style="font-family: serif"
+            >p-1</span
+          >以下の整数が、ある <span style="font-family: serif">k</span> を使って
+          <span style="font-family: serif">g<sup>k</sup> mod p</span>
+          として表される）<strong>である</strong>。
+        </li>
+        <li>
+          <span style="font-family: serif">y = g<sup>x</sup> mod p</span>
+          という形で証明者（Peggy）が秘密の値
+          <span style="font-family: serif">x</span> を知っていることを証明する。
+        </li>
+      </ul>
+      <h4 id="プロトコルの手順">プロトコルの手順</h4>
+      <ol type="1">
+        <li>
+          <strong>コミットメント</strong>:
+          <ul>
+            <li>
+              Peggy はランダムな数
+              <span style="font-family: serif">r</span> を選び、コミットメント
+              <span style="font-family: serif">t = g<sup>r</sup> mod p</span>
+              を計算して、検証者（Victor）に送る。
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>チャレンジ</strong>:
+          <ul>
+            <li>
+              Victor はランダムなビット
+              <span style="font-family: serif">c</span>（0または1）を選び、Peggy
+              に送る。
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>レスポンス</strong>:
+          <ul>
+            <li>
+              <span style="font-family: serif">c = 0</span> の場合: Peggy は
+              <span style="font-family: serif">r</span> を送る。<br />
+            </li>
+            <li>
+              <span style="font-family: serif">c = 1</span> の場合: Peggy は
+              <span style="font-family: serif">s = r + x mod (p-1)</span>
+              を計算し、送る。
+            </li>
+          </ul>
+        </li>
+        <li>
+          <strong>検証</strong>:
+          <ul>
+            <li>
+              <span style="font-family: serif">c = 0</span> の場合: Victor は
+              <span style="font-family: serif">g<sup>r</sup> mod p</span>
+              が受け取った
+              <span style="font-family: serif">t</span>
+              と一致することを確認する。<br />
+            </li>
+            <li>
+              <span style="font-family: serif">c = 1</span> の場合: Victor は
+              <span style="font-family: serif">g<sup>s</sup> mod p</span> が
+              <span style="font-family: serif">t · y mod p</span>
+              と一致することを確認する。
+            </li>
+          </ul>
+        </li>
+      </ol>
+      <h3 id="証明">証明</h3>
+      <h4 id="完全性completeness">完全性（Completeness）</h4>
+      <ul>
+        <li>
+          主張が真であり、Peggy が正直である場合、全ての手順が正しく進む。
+        </li>
+        <li>
+          <span style="font-family: serif">c = 0</span> の場合、Peggy は正しい
+          <span style="font-family: serif">r</span> を持っているため、<span
+            style="font-family: serif"
+            >t = g<sup>r</sup> mod p</span
+          >
+          は一致する。
+        </li>
+        <li>
+          <span style="font-family: serif">c = 1</span> の場合、Peggy の
+          <span style="font-family: serif">s = r + x mod (p-1)</span> から
+          <span style="font-family: serif"
+            >g<sup>s</sup> = g<sup>r + x</sup> = g<sup>r</sup> · g<sup>x</sup>
+            mod p = t · y mod p</span
+          >
+          となり、検証に成功する。
+        </li>
+      </ul>
+      <h4 id="健全性soundness">健全性（Soundness）</h4>
+      <ul>
+        <li>
+          主張が偽であり、Peggy が正しい
+          <span style="font-family: serif">x</span> を知らない場合、Peggy が
+          <span style="font-family: serif">r</span> や
+          <span style="font-serif;">s</span>
+          を適当に選んでも、検証者を騙せる確率は1/2である。複数回の試行でこの確率は急速に低下する。
+        </li>
+      </ul>
+      <h4 id="ゼロ知識性zero-knowledge">ゼロ知識性（Zero-Knowledge）</h4>
+      <ul>
+        <li>
+          Victor は <span style="font-family: serif">r</span> または
+          <span style="font-family: serif">s</span>
+          のいずれかを知るだけであり、Peggy の秘密
+          <span style="font-family: serif">x</span>
+          については何も知らない。<br />
+          Peggy のレスポンスはランダムな挑戦
+          <span style="font-family: serif">c</span> に依存するため、Victor
+          は追加の情報を得ることができない。
+        </li>
+      </ul>
+      <h3 id="参考資料">参考資料</h3>
+      <ul>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Zero-knowledge_proof"
+            >Zero-Knowledge Proofs on Wikipedia</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://towardsdatascience.com/introduction-to-zero-knowledge-proofs-4621a0a77d8e"
+            >Introduction to Zero-Knowledge Proofs</a
+          >
+        </li>
+      </ul>
+    </body>
+  </html>
+</DOCTYPE>
