@@ -213,10 +213,10 @@
       <h4 id="完全性completeness">完全性（Completeness）</h4>
       <ul>
         <li>
-          主張が真であり、Peggy が正直である場合、全ての手順が正しく進む。
+          主張が真であり、アリス が正直である場合、全ての手順が正しく進む。
         </li>
         <li>
-          <span style="font-family: serif">c = 0</span> の場合、Peggy は正しい
+          <span style="font-family: serif">c = 0</span> の場合、アリス は正しい
           <span style="font-family: serif">r'</span> を持っているため、<span
             style="font-family: serif"
             >t = g<sup>r'</sup> mod p</span
@@ -224,7 +224,7 @@
           は一致する。
         </li>
         <li>
-          <span style="font-family: serif">c = 1</span> の場合、Peggy の
+          <span style="font-family: serif">c = 1</span> の場合アリス の
           <span style="font-family: serif">s = r' + x mod (p-1)</span> から
           <span style="font-family: serif"
             >g<sup>s</sup> = g<sup>r' + x</sup> = g<sup>r'</sup> · g<sup>x</sup>
@@ -236,8 +236,8 @@
       <h4 id="健全性soundness">健全性（Soundness）</h4>
       <ul>
         <li>
-          主張が偽であり、Peggy が正しい
-          <span style="font-family: serif">x</span> を知らない場合、Peggy が
+          主張が偽であり、アリス が正しい
+          <span style="font-family: serif">x</span> を知らない場合、アリス が
           <span style="font-family: serif">r</span> や
           <span style="font-serif;">s</span>
           を適当に選んでも、検証者を騙せる確率は1/2である。複数回の試行でこの確率は急速に低下する。
@@ -246,13 +246,13 @@
       <h4 id="ゼロ知識性zero-knowledge">ゼロ知識性（Zero-Knowledge）</h4>
       <ul>
         <li>
-          Victor は <span style="font-family: serif">r</span> または
+          ボブ は <span style="font-family: serif">r</span> または
           <span style="font-family: serif">s</span>
-          のいずれかを知るだけであり、Peggy の秘密
+          のいずれかを知るだけであり、アリス の秘密
           <span style="font-family: serif">x</span>
           については何も知らない。<br />
-          Peggy のレスポンスはランダムな挑戦
-          <span style="font-family: serif">c</span> に依存するため、Victor
+          アリス のレスポンスはランダムな挑戦
+          <span style="font-family: serif">c</span> に依存するため、ボブ
           は追加の情報を得ることができない。
         </li>
       </ul>
