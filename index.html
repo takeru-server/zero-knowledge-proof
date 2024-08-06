@@ -136,6 +136,13 @@
       </ul>
       <h4 id="プロトコルの手順">プロトコルの手順</h4>
       <ol type="1">
+        <p>
+            【<span style="font-family: serif">r'</span> を使う理由】<br>
+              <span style="font-family: serif">r</span> は非常に大きな数になる可能性がある。<br>
+              大きな数を扱う計算よりも有限体上で議論した方がコンパクトになる。<br>
+              <span style="font-family: serif">r'</span> は <span style="font-family: serif">r</span> を <span style="font-family: serif">p-1</span> で割った余りなので、<span style="font-family: serif">r</span> よりも小さい値になる。<br>
+              <span style="font-family: serif">r'</span> を使うことで、計算量を抑え、効率的に処理を行うことができる。
+        </p>
         <li>
           <strong>コミットメント</strong>:
           <ul>
@@ -152,13 +159,6 @@
             </li>
           </ul>
         </li>
-        <p>
-          【<span style="font-family: serif">r'</span> を使う理由】<br>
-          <span style="font-family: serif">r</span> は非常に大きな数になる可能性がある。<br>
-          大きな数を扱う計算よりも有限体上で議論した方がコンパクトになる。<br>
-          <span style="font-family: serif">r'</span> は <span style="font-family: serif">r</span> を <span style="font-family: serif">p-1</span> で割った余りなので、<span style="font-family: serif">r</span> よりも小さい値になる。<br>
-          <span style="font-family: serif">r'</span> を使うことで、計算量を抑え、効率的に処理を行うことができる。
-        </p>
         <li>
           <strong>チャレンジ</strong>:
           <ul>
