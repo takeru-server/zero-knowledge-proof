@@ -142,15 +142,11 @@
             <li>
               Peggy はランダムな数
               <span style="font-family: serif">r</span> を選び、コミットメント
-              <span style="font-family: serif">t = g<sup>r</sup> mod p</span>
-              を計算して、検証者（Victor）に送る。
+              <span style="font-family: serif">r' = r mod (p - 1)</span>
+              を計算する（<span style="font-family: serif">r'</span> は <span style="font-family: serif">r</span> を <span style="font-family: serif">p - 1</span> で割ったあまり）。
             </li>
             <li>
-              Peggy はランダムな数
-              <span style="font-family: serif">r</span> を選び、コミットメント
-              <span style="font-family: serif">r' = r mod (p - 1)</span>
-              を計算する（<span style="font-family: serif">r'</span> は <span style="font-family: serif">r</span> を <span style="font-family: serif">p - 1</span> で割ったあまり）。<br>
-              また、コミットメント
+              Peggy はコミットメント
               <span style="font-family: serif">t = g<sup>r'</sup> mod p</span>
               を計算して、検証者（Victor）に送る。
             </li>
