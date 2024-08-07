@@ -115,6 +115,40 @@
         ③の特性を満たすプロトコルの例として、以下に「離散対数問題」を用いたゼロ知識証明のプロトコルを示す。
       </p>
       <h3 id="離散対数問題に基づくゼロ知識証明">離散対数問題に基づくゼロ知識証明</h3>
+      
+      <p><b>記号の定義</b></p>
+      <ul>
+        <li><span style="font-family: serif">p</span>: 大きな素数</li>
+        <li><span style="font-family: serif">g</span>: <span style="font-family: serif">p</span> を法とする原始根</li>
+        <li><span style="font-family: serif">x</span>: アリスの秘密の値</li>
+        <li><span style="font-family: serif">y</span>: アリスが公開する値 (<span style="font-family: serif">y</span> ≡ <span style="font-family: serif">g<sup>x</sup></span> mod <span style="font-family: serif">p</span>)</li>
+        <li><span style="font-family: serif">r</span>: アリスがランダムに選ぶ数</li>
+        <li><span style="font-family: serif">r'</span>: <span style="font-family: serif">r</span> を <span style="font-family: serif">p-1</span> で割った余り (<span style="font-family: serif">r'</span> ≡ <span style="font-family: serif">r</span> mod (<span style="font-family: serif">p-1</span>))</li>
+        <li><span style="font-family: serif">t</span>: アリスがボブに送るコミットメント (<span style="font-family: serif">t</span> ≡ <span style="font-family: serif">g<sup>r'</sup></span> mod <span style="font-family: serif">p</span>)</li>
+        <li><span style="font-family: serif">c</span>: ボブがランダムに選ぶビット (0 または 1)</li>
+        <li><span style="font-family: serif">s</span>: アリスがボブに送るレスポンス 
+          <ul>
+            <li><span style="font-family: serif">c</span> = 0 の場合は <span style="font-family: serif">r'</span></li>
+            <li><span style="font-family: serif">c</span> = 1 の場合は <span style="font-family: serif">r'</span> + <span style="font-family: serif">x</span> mod (<span style="font-family: serif">p-1</span>)</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <p>
+          <b>【<span style="font-family: serif">r'</span> を使う理由】</b>
+      </p>
+      <p>
+        <span style="font-family: serif">r</span> は非常に大きな数になる可能性がある。<br>
+      大きな数を扱う計算よりも有限体上で議論した方がコンパクトになる。<br>
+      <span style="font-family: serif">r'</span>は
+          <span style="font-family: serif">r</span>を
+          <span style="font-family: serif">p-1</span>で割った余りなので、
+          <span style="font-family: serif">r</span>よりも小さい値になる。
+          <br>
+          <span style="font-family: serif">r'</span>を使うことで、計算量を抑え、効率的に処理を行うことができる。
+      </p>
+
+      
       <h4 id="前提条件">前提条件</h4>
       <ul>
         <li>
