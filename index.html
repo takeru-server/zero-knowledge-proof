@@ -131,7 +131,7 @@
           として表される）<strong>である</strong>。
         </li>
         <li>
-          <span style="font-family: serif">y = g<sup>x</sup> mod p</span>
+          <span style="font-family: serif">y ≡ g<sup>x</sup> mod p</span>
           という形で証明者（アリス）が秘密の値
           <span style="font-family: serif">x</span> を知っていることを証明する。
         </li>
@@ -151,12 +151,12 @@
             <li>
              アリス はランダムな数
               <span style="font-family: serif">r</span> を選び、コミットメント
-              <span style="font-family: serif">r' = r mod (p - 1)</span>
+              <span style="font-family: serif">r' ≡ r mod (p - 1)</span>
               を計算する（<span style="font-family: serif">r'</span> は <span style="font-family: serif">r</span> を <span style="font-family: serif">p - 1</span> で割ったあまり）。
             </li>
             <li>
               アリス はコミットメント
-              <span style="font-family: serif">t = g<sup>r'</sup> mod p</span>
+              <span style="font-family: serif">t ≡ g<sup>r'</sup> mod p</span>
               を計算して、検証者（ボブ）に送る。
             </li>
           </ul>
@@ -180,12 +180,12 @@
             </li><!--
             <li>
               <span style="font-family: serif">c = 1</span> の場合: アリス は
-              <span style="font-family: serif">s = r + x mod (p-1)</span>
+              <span style="font-family: serif">s ≡ r + x mod (p-1)</span>
               を計算し、送る。
             </li> -->
             <li>
               <span style="font-family: serif">c = 1</span> の場合: アリス は
-              <span style="font-family: serif">s = r' + x mod (p-1)</span>
+              <span style="font-family: serif">s ≡ r' + x mod (p-1)</span>
               を計算し、送る。
             </li>
           </ul>
@@ -225,10 +225,10 @@
         </li>
         <li>
           <span style="font-family: serif">c = 1</span> の場合アリス の
-          <span style="font-family: serif">s = r' + x mod (p-1)</span> から
+          <span style="font-family: serif">s ≡ r' + x mod (p-1)</span> から
           <span style="font-family: serif"
-            >g<sup>s</sup> = g<sup>r' + x</sup> = g<sup>r'</sup> · g<sup>x</sup>
-            mod p = t · y mod p</span
+            >g<sup>s</sup> = g<sup>r' + x</sup> ≡ g<sup>r'</sup> · g<sup>x</sup>
+            mod p ≡ t · y mod p</span
           >
           となり、検証に成功する。
         </li>
